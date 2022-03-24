@@ -30,5 +30,45 @@
         });
     </script>
 
+    
+    <form action="booking_form_test.php" method="post" >
+    <table class = "calendar">
+        <div class ="form_title"> I </div><br />
+          
+          <div class ="form_body">
+
+          <span class="label">Imię:</span><br />
+          <input name="Name" value="" class="data_field"/><br />
+
+          <span class="label">Nazwisko:<br />
+          <input name="LastName" value="" class="data_field"/><br />
+
+          <span class="label">Numer Telefonu:</span><br />
+          <input name="Phone" maxlength="9" value="" class="data_field"/><br />
+
+          <span class="label">Adres e-mail:</span><br />
+          <input name="Email" value="" class="data_field"/><br />
+    
+          <span class="label">Data przyjazdu:</span><br />
+          <input type="date" name="CheckIn" value="" class="data_field"/><br />
+
+          <span class="label">Data wyjazdu: </span><br />
+          <input type="date" name="CheckOut" value="" class="data_field"/><br />
+
+          <span class="label">Ilość dorosłych </span><br/>
+          <input type="number" min="0" max="7" name="AdultNumber" value="" class="data_field"/><br />
+
+          <span class="label">Ilość dzieci </span><br/>
+          <input type="number" min="0" max="7" name="ChildNumber" value="" class="data_field"/><br />
+              
+          <input type="checkbox" value="checked" name="mailing" />Wyrażam zgodę na przetwarzanie danych<br /><br />
+          <input type="checkbox" value="checked" name="mailing" />Akceptuje regulamin Apartamentu<br /><br />
+
+          <input type="submit" value="Wyślij" name="submit" />
+          <div class="pers_data_adm">“Administratorem Państwa danych osobowych jest FIRMA ABC. Państwa dane są przetwarzane w celu odpowiedzi na przesłany formularz oraz prowadzenia rozmów prowadzących do podjęcia długotrwałej współpracy. Szczegółowe informacje dotyczące przetwarzania danych przez Administratora oraz przysługujących uprawnieniach znajdą Państwo w Polityce Prywatności.”</div>
+        
+      </div>
+    </table>
+  </form>
 </body>
 </html>
