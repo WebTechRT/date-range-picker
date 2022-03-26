@@ -3,9 +3,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /></head>
+    <link rel="stylesheet" type="text/css" href="style.css" /></head>
 <body>
-    <input type="text" name="daterange" value="" id="calendarDateRange"  />
+    <!-- <input type="text" name="daterange" value="" id="calendarDateRange" class="data"  /> -->
 
     <script>
         var d = new Date();
@@ -17,10 +17,12 @@
             $('input[name="daterange"]').daterangepicker({
             "showDropdowns": true,
             "alwaysShowCalendars": true,
-            opens: 'left',
+            opens: 'center',
+            // drops: 'auto',
             minDate: today,
             //maxDate: '01/01/2018',
             }, function(start, end, label) {
+                // $('#calendarDateRange').val(start + ' - ' + end);
               //grab results
             });
         });
@@ -30,9 +32,11 @@
         });
     </script>
 
-    <form action="booking_form_test.php" method="post" >
+
+
+<form action="booking_form_test.php" method="post" >
     <table class = "calendar">
-        <div class ="form_title"> I </div><br />
+        <div class ="form_title"> Formularz kontaktowy  </div><br />
           
           <div class ="form_body">
 
@@ -47,12 +51,9 @@
 
           <span class="label">Adres e-mail:</span><br />
           <input name="Email" value="" class="data_field"/><br />
-    
-          <span class="label">Data przyjazdu:</span><br />
-          <input type="date" name="CheckIn" value="" class="data_field"/><br />
-
-          <span class="label">Data wyjazdu: </span><br />
-          <input type="date" name="CheckOut" value="" class="data_field"/><br />
+          
+          <span class="label">Czas pobytu:</span><br /> 
+          <input type="text" name="daterange" value="" id="calendarDateRange" class="data_field"   />
 
           <span class="label">Ilość dorosłych </span><br/>
           <input type="number" min="0" max="7" name="AdultNumber" value="" class="data_field"/><br />
@@ -71,6 +72,7 @@
       </div>
     </table>
   </form>
-        
+
+
 </body>
 </html>
