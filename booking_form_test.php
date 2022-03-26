@@ -8,12 +8,13 @@
     $lastName = $_POST['LastName'];
     $phone = $_POST['Phone'];
     $email = $_POST['Email'];
-    $checkIn = $_POST['CheckIn'];
-    $checkOut = $_POST['CheckOut'];
+    // $checkIn = $_POST['CheckIn'];
+    // $checkOut = $_POST['CheckOut'];
     $adultNumber = $_POST['AdultNumber'];
     $childNumber = $_POST['ChildNumber'];
+    $dateRange = $_POST['daterange'];
 
-    $booking = new Booking($checkIn, $checkOut, $adultNumber, $childNumber, $firstName, $lastName, $email, $phone);
+    $booking = new Booking($dateRange, $adultNumber, $childNumber, $firstName, $lastName, $email, $phone);
     $booking->showMessage();
 
   } 
