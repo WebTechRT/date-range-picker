@@ -1,78 +1,75 @@
+<!DOCTYPE html>
 <html>
 <head>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" /></head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 <body>
-    <!-- <input type="text" name="daterange" value="" id="calendarDateRange" class="data"  /> -->
 
-    <script>
-        var d = new Date();
-        var month = d.getMonth()+1;
-        var day = d.getDate();
-        var today =  (month<10 ? '0' : '') + month + '/' + (day<10 ? '0' : '') + day + '/' + d.getFullYear();
+<form action="booking_form_test.php" method="post">
+    <table class="calendar">
+        <div class="form_title">Formularz kontaktowy</div><br/>
+        <div class="form_body">
+            <span class="label">Imię:</span><br/>
+            <input name="Name" value="" class="data_field" required/><br/>
 
-        $(function() {
-            $('input[name="daterange"]').daterangepicker({
-            "showDropdowns": true,
-            "alwaysShowCalendars": true,
-            opens: 'center',
-            // drops: 'auto',
-            minDate: today,
-            //maxDate: '01/01/2018',
-            }, function(start, end, label) {
-                // $('#calendarDateRange').val(start + ' - ' + end);
-              //grab results
-            });
-        });
+            <span class="label">Nazwisko:<br/>
+            <input name="LastName" value="" class="data_field" required/><br/>
 
-        $('#calendarDateRange').ready(function() {
-            $('#calendarDateRange').click();
-        });
-    </script>
+            <span class="label">Numer Telefonu:</span><br/>
+            <input name="Phone" maxlength="9" value="" class="data_field" required/><br/>
 
+            <span class="label">Adres e-mail:</span><br/>
+            <input name="Email" value="" class="data_field" required/><br/>
 
+            <span class="label">Czas pobytu:</span><br/> 
+            <input type="text" name="daterange" value="" id="calendarDateRange" class="data_field" />
 
-<form action="booking_form_test.php" method="post" >
-    <table class = "calendar">
-        <div class ="form_title"> Formularz kontaktowy  </div><br />
-          
-          <div class ="form_body">
+            <span class="label">Ilość dorosłych </span><br/>
+            <input type="number" min="0" max="7" name="AdultNumber" value="" class="data_field" required/><br/>
 
-          <span class="label">Imię:</span><br />
-          <input name="Name" value="" class="data_field"/><br />
+            <span class="label">Ilość dzieci </span><br/>
+            <input type="number" min="0" max="7" name="ChildNumber" value="" class="data_field" required/><br/>
 
-          <span class="label">Nazwisko:<br />
-          <input name="LastName" value="" class="data_field"/><br />
+            <input type="checkbox" value="checked" name="mailing" required/>Wyrażam zgodę na przetwarzanie danych<br/><br/>
+            <input type="checkbox" value="checked" name="mailing" required/>Akceptuje regulamin Apartamentu<br/><br/>
 
-          <span class="label">Numer Telefonu:</span><br />
-          <input name="Phone" maxlength="9" value="" class="data_field"/><br />
-
-          <span class="label">Adres e-mail:</span><br />
-          <input name="Email" value="" class="data_field"/><br />
-          
-          <span class="label">Czas pobytu:</span><br /> 
-          <input type="text" name="daterange" value="" id="calendarDateRange" class="data_field"   />
-
-          <span class="label">Ilość dorosłych </span><br/>
-          <input type="number" min="0" max="7" name="AdultNumber" value="" class="data_field"/><br />
-
-          <span class="label">Ilość dzieci </span><br/>
-          <input type="number" min="0" max="7" name="ChildNumber" value="" class="data_field"/><br />
-
-      
-
-          <input type="checkbox" value="checked" name="mailing" />Wyrażam zgodę na przetwarzanie danych<br /><br />
-          <input type="checkbox" value="checked" name="mailing" />Akceptuje regulamin Apartamentu<br /><br />
-
-          <input type="submit" value="Wyślij" name="submit" />
-          <div class="pers_data_adm">“Administratorem Państwa danych osobowych jest FIRMA ABC. Państwa dane są przetwarzane w celu odpowiedzi na przesłany formularz oraz prowadzenia rozmów prowadzących do podjęcia długotrwałej współpracy. Szczegółowe informacje dotyczące przetwarzania danych przez Administratora oraz przysługujących uprawnieniach znajdą Państwo w Polityce Prywatności.”</div>
-        
-      </div>
+            <input type="submit" value="Wyślij" name="submit" />
+            <div class="pers_data_adm">
+                “Administratorem Państwa danych osobowych jest FIRMA ABC. Państwa dane są przetwarzane w celu odpowiedzi na przesłany formularz oraz prowadzenia rozmów prowadzących do podjęcia długotrwałej współpracy. Szczegółowe informacje dotyczące przetwarzania danych przez Administratora oraz przysługujących uprawnieniach znajdą Państwo w Polityce Prywatności.”
+            </div>
+    
+        </div>
     </table>
-  </form>
+</form>
 
+<script>
+    var date  = new Date();
+    var month = date.getMonth() +1;
+    var day   = date.getDate();
+    var today = ( month < 10 ? '0' : '' ) + month + '/' + ( day < 10 ? '0' : '' ) + day + '/' + date.getFullYear();
+
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+        "showDropdowns": true,
+        "alwaysShowCalendars": true,
+        opens: 'center',
+        minDate: today,
+        // drops: 'auto',
+        //maxDate: '01/01/2018',
+        }, function(start, end, label) {
+            //get result
+        });
+    });
+
+
+    //Open the calendar automatically after visiting the website
+    // $('#calendarDateRange').ready(function() {
+    //     $('#calendarDateRange').click();
+    // });
+</script>
 
 </body>
 </html>

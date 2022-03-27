@@ -3,8 +3,6 @@
 class Booking
 {
 	public $dateRange;
-	// public $checkIn;
-	// public $checkOut;
 	public $adultNumber;
 	public $childNumber;
 	public $firstName;
@@ -15,8 +13,6 @@ class Booking
 	public function __construct
 	(
 		$dateRange,
-	 	// $checkIn,
-	 	// $checkOut,
 	 	$adultNumber,
 	 	$childNumber,
 	 	$firstName,
@@ -47,11 +43,9 @@ class Booking
 
 	public function showMessage()
 	{
-		// echo nl2br ("Pan " . $this->firstName ." ". $this->lastName . " rezerwuje apartament od ". $this->checkIn . " do " . $this->checkOut . "\n" );
+		echo nl2br ("Pan " . $this->firstName ." ". $this->lastName . " rezerwuje apartament od ". $this->checkIn . " do " . $this->checkOut . "\n" );
 
-	    // echo nl2br("Dane kontaktowe ". "\n");
-	    // echo nl2br("Dzwonić pod nr: " . $this->phoneNumber . "\n" . "Faktury na adres email: " . $this->email. "\n");
-	    echo $this->checkOut. "</br>" ;
-	    echo $this->checkIn;
+	    echo nl2br("Dane kontaktowe ". "\n");
+	    echo nl2br("Dzwonić pod nr: " . $this->phoneNumber . "\n" . "Faktury na adres email: " . $this->email. "\n");
 	}
 } 
